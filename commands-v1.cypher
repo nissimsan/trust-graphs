@@ -12,10 +12,10 @@ ORDER BY similarity DESCENDING, VC1
 
 // Squash together node types
 // I'm positive this can be done 1000 times nicer - preferably on the projection. Pls let me know how.  
-MATCH (n:BillOfLading) WITH collect(n) as nodes CALL apoc.refactor.mergeNodes(nodes)
-MATCH (n:CommercialInvoice) WITH collect(n) as nodes CALL apoc.refactor.mergeNodes(nodes)
-MATCH (n:IntentToImport) WITH collect(n) as nodes CALL apoc.refactor.mergeNodes(nodes)
-MATCH (n:MillTestReport) WITH collect(n) as nodes CALL apoc.refactor.mergeNodes(nodes)
+MATCH (n:BillOfLading) WITH collect(n) as nodes CALL apoc.refactor.mergeNodes(nodes);
+MATCH (n:CommercialInvoice) WITH collect(n) as nodes CALL apoc.refactor.mergeNodes(nodes);
+MATCH (n:IntentToImport) WITH collect(n) as nodes CALL apoc.refactor.mergeNodes(nodes);
+MATCH (n:MillTestReport) WITH collect(n) as nodes CALL apoc.refactor.mergeNodes(nodes);
 
 // Make a new projection, reverse the direction for organization focus 
 CALL gds.graph.project(
